@@ -65,12 +65,12 @@ class matriz:
         matriz_B=self.listas[inicio]=filaLleg
         return self.listas
 
-m_3=matriz([[1,4,5],[3,6,7],[9,0,9]])
-m_1=matriz([[1,2,3],[4,5,6],[7,8,9]])
-m_5=matriz([[1,2,2],[3,4,7],[3,6,1]])
+# m_3=matriz([[1,4,5],[3,6,7],[9,0,9]])
+# m_1=matriz([[1,2,3],[4,5,6],[7,8,9]])
+# m_5=matriz([[1,2,2],[3,4,7],[3,6,1]])
 # print(m_1)
-m_1.reduccion(4,1,2)
-m_3.reduccion(4,1,2)
-m_5.reduccion(4,1,2)
+# m_1.reduccion(4,1,2)
+# m_3.reduccion(4,1,2)
+# m_5.reduccion(4,1,2)
 #r_1=m_1.multiplicar(2,0)
 #r_2=m_1.cambiafila(0,1)
