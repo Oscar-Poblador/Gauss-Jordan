@@ -14,6 +14,13 @@ class matriz:
         '''
         >>> m_1=matriz([1,2,3],[4,5,6],[7,8,9])
         '''
+     def cambiafila(self,inicio,llegada):
+        filaInic=self.listas[inicio]
+        filaLleg=self.listas[llegada]
+        matriz_B=self.listas[llegada]=filaInic
+        matriz_B=self.listas[inicio]=filaLleg
+        return self.listas
 m_1=matriz([[1,2,3],[4,5,6],[7,8,9]])
 print(m_1)
 #r_1=m_1.multiplicar(2,0)
+#r_2=m_1.cambiafila(0,1)
