@@ -1,4 +1,4 @@
-import matriz.py
+import Gauss.py
 m1=matriz([[3,1,2],[4,5,6],[3,7,9]])
 m1
 m2=m1.cambiafila(0,1)
