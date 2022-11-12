@@ -23,4 +23,9 @@ class matriz:
 m_1=matriz([[1,2,3],[4,5,6],[7,8,9]])
 print(m_1)
 #r_1=m_1.multiplicar(2,0)
-#r_2=m_1.cambiafila(0,1)
+#m2=m_1.cambiafila(0,1)
+#m2
+#m3=m_1.cambiafila(1,2)
+#m3
+#m4=m_1.cambiafila(0,2)
+#m4
