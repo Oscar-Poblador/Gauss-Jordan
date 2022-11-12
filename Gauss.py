@@ -9,7 +9,7 @@ class matriz:
     def multiplicar(self,aux,num_fila):
         '''
         Retorna una nueva fila en la que se multiplicó el número de fila indicado por el valor de aux ingresado
-        >>> m_1=matriz([1,2,3],[4,5,6],[7,8,9])
+        >>> m_1=matriz([[1,2,3],[4,5,6],[7,8,9]])
 
         >>> m_1
         [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
@@ -22,7 +22,7 @@ class matriz:
         >>> r_1
         [[1, 2, 3], [4, 5, 6], [56, 64, 72]]
         >>> r_1=m_1.multiplicar(0.5,1)
-        
+
         >>> r_1
         [[1, 2, 3], [2.0, 2.5, 3.0], [7, 8, 9]]
         '''
