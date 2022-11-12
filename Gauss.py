@@ -17,15 +17,22 @@ class matriz:
         [[1, 2, 3], [20, 25, 30], [7, 8, 9]]
         >>> r_1=m_1.multiplicar(8,2)
         >>> r_1
-        [[1, 2, 3], [4, 5, 6], [56, 64, 72]
+        [[1, 2, 3], [4, 5, 6], [56, 64, 72]]
         >>> r_1=m_1.multiplicar(0.5,1)
         >>> r_1
-        [[0.5, 1.0, 1.5], [4, 5, 6], [7, 8, 9]]
+         [[1, 2, 3], [2.0, 2.5, 3.0], [7, 8, 9]]
         '''
         renglon_multiplicar=[]
+        n=[]
+        m=[]
+        matriz_multiplicar=[]
         for i in range(0,self.filas):
             renglon_multiplicar.append(self.listas[num_fila][i]*aux)
-        matriz_multiplicar=self.listas
+        for j in range(0,self.filas):
+            nueva_lista=[]
+            for k in range(0,self.columnas):
+                nueva_lista.append(self.listas[j][k])
+            matriz_multiplicar.append(nueva_lista)
         matriz_multiplicar[num_fila]=renglon_multiplicar
         return matriz_multiplicar
         
