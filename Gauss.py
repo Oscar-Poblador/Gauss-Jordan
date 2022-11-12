@@ -15,4 +15,5 @@ class matriz:
         print(matriz_reduccion)
         return matriz_reduccion
         #matriz_reduccion
+    print("S")
 
