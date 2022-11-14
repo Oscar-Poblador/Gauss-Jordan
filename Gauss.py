@@ -3,35 +3,30 @@ class matriz:
         self.listas=matriz_A
         self.filas=len(matriz_A)
         self.columnas=len(matriz_A[0])
-
-    def reduccion(self, k, i, j): 
-        #i es el indice del renglon que se le va a multiplicar, j es el indice del renglon a cambiar, k es el número para multiplicar
+    def __repr__(self):
+        return str(self.listas)
+    
+    def reduccion(self, k, i, j): #i es el indice del renglon que se le va a multiplicar, j es el indice del renglon a cambiar, k es el número para multiplicar
         '''
         Tiene parámetros:
         k: es el número por el cual se multiplica la fila i
         i: es el indice de la fila a multiplicar
         j: es el indice de la fila a cambiar
-
         >>> m_1=matriz([[1,2,3],[4,5,6],[7,8,9]])
         >>> m_1
         [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-
         >>> m_2=m_1.reduccion(4,1,2)
         >>> m_2
         [[1, 2, 3], [23, 24, 25], [7, 8, 9]]
-
         >>> m_3=matriz([[1,4,5],[3,6,7],[9,0,9]])
         >>> m_3
         [[1, 4, 5], [3, 6, 7], [9, 0, 9]]
-
         >>> m_4=m_3.reduccion(4,1,2)
         >>> m_4
         [[1, 4, 5], [21, 12, 21], [9, 0, 9]]
-
         >>> m_5=matriz([[1,2,2],[3,4,7],[3,6,1]])
         >>> m_5
         [[1, 2, 2], [3, 4, 7], [3, 6, 1]]
-
         >>> m_6=m_5.reduccion(4,1,2)
         >>> m_6
         [[1, 2, 2], [15, 18, 13], [3, 6, 1]]
@@ -50,9 +45,6 @@ class matriz:
         matriz_principal[j]=renglon_cambiar
         return matriz_principal
 
-
-    def __repr__(self):
-        return str(self.listas)
     def multiplicar(self,aux,num_fila):
         '''
         Retorna una nueva fila en la que se multiplicó el número de fila indicado por el valor de aux ingresado
@@ -78,7 +70,6 @@ class matriz:
         m=[]
         matriz_multiplicar=[]
         for i in range(0,self.filas):
-
             renglon_multiplicar.append(self.listas[num_fila][i]*aux)
         for j in range(0,self.filas):
             nueva_lista=[]
@@ -86,15 +77,43 @@ class matriz:
                 nueva_lista.append(self.listas[j][k])
             matriz_multiplicar.append(nueva_lista)
         matriz_multiplicar[num_fila]=renglon_multiplicar
-        return matriz_multiplicar
-
-# m_3=matriz([[1,4,5],[3,6,7],[9,0,9]])
-# m_1=matriz([[1,2,3],[4,5,6],[7,8,9]])
-# m_5=matriz([[1,2,2],[3,4,7],[3,6,1]])
-# print(m_1)
+        return matriz_multiplicar   
+    def cambiafila(self,inicio,llegada):
+        '''
+        Cambiafila cambio de posicion dos filas inicio a llegada y viceversa
+        ----------------
+        >>> m1=matriz([[3,1,2],[4,5,6],[3,7,9]])
+        
+        >>> m1
+        [[3, 1, 2], [4, 5, 6], [3, 7, 9]]
+        >>> m2=m1.cambiafila(0,1)
+        
+        >>> m2
+        [[4, 5, 6], [3, 1, 2], [3, 7, 9]]
+        >>> m3=m1.cambiafila(1,2)
+        
+        >>> m3
+        [[4, 5, 6], [3, 7, 9], [3, 1, 2]]
+        >>> m4=m1.cambiafila(0,2)
+        
+        >>> m4
+        [[3, 1, 2], [3, 7, 9], [4, 5, 6]]
+        '''
+        filaInic=self.listas[inicio]
+        filaLleg=self.listas[llegada]
+        matriz_B=self.listas[llegada]=filaInic
+        matriz_B=self.listas[inicio]=filaLleg
+        return self.listas
+m_1=matriz([[1,4,5],[3,6,7],[9,0,9]])
+# m_2=matriz([[1,2,3],[4,5,6],[7,8,9]])
+# m_3=matriz([[1,2,2],[3,4,7],[3,6,1]])
+print(m_1)
 # m_1.reduccion(4,1,2)
 # m_3.reduccion(4,1,2)
 # m_5.reduccion(4,1,2)
-#r_1=m_1.multiplicar(2,0)
+r_1=m_1.multiplicar(2,0)
+print(r_1)
+print(m_1)
+r_1=m_1.multiplicar(2,2)
+print(r_1)
 #r_2=m_1.cambiafila(0,1)
-
