@@ -167,7 +167,7 @@ class Gauss(Matriz):
                 for k in range(0,self.columnas):
                     matriz_cambio[a][k]=normalizar*matriz_cambio[a][k]
 
-            #Simplifica la primera columna
+            #Simplifica la b columna
             for j in range(0,self.filas):
                 nueva_lista=[]
                 for k in range(0,self.columnas):
