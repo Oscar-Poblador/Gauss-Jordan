@@ -131,6 +131,14 @@ class Gauss(Matriz):
         for l in range(1,self.filas):
             a=l+1
             self.simplificar_abajo(self.filas-l,self.columnas-a)
+        print("\n\t\t\t\t\t\t -----------------------------------------------------")
+        print("\n\t\t\t\t\t\t ----------     La matriz de entrada fue    ----------")
+        print("\n\t\t\t\t\t\t -----------------------------------------------------")
+        print(self.listas)
+        print("\n\t\t\t\t\t\t       -------------------------------------------")
+        print("\n\t\t\t\t\t\t       ----------     La solución es    ----------")
+        print("\n\t\t\t\t\t\t       -------------------------------------------")
+        print(matriz_cambio)
             
     def simplificar_abajo(self,a,b): 
         global matriz_cambio
@@ -205,12 +213,74 @@ class Gauss(Matriz):
             print("\nSe simplificó la ",b, " columna")
         print("\nMatriz entrada: ",matriz_aux2,"\n")
         print("\nMatriz resultado: ",matriz_cambio,"\n")
+class Menu():
+    def inicio(self):
+        matriz_lectura=[]
+        print("\n\t\t\t\t\t\t ---------------------------------------")
+        print("\n\t\t\t\t\t\t ----------     Bienvenido    ----------")
+        print("\n\t\t\t\t\t\t ---------------------------------------")
+        lectura=0
+        fila1=[]
+        print("\nIngrese los valores de cada una de las filas de la matriz a operar. Tenga en cuenta que el último digito corresponde al lado derecho de la igualdad")
+        print("\nEJEMPLO: [A,B,C,D]=[E] --> [A,B,C,D,E]")
+        
+        while(lectura!=1):
+            aux=input("\nLos valores de la primera fila son: ")
+            fila1=aux.split(',')
+            n=len(fila1)
+            error=0
+            for i in range(0,n):
+                try:
+                    fila1[i]=int(fila1[i])
+                    lectura=1
+                except:
+                    try:
+                        fila1[i]=float(fila1[i])
+                        lectura=1
+                    except:
+                        error=1     
+            if(error==1):
+                print("\nEl dato ingresado no es valido. Por favor intente nuevamente\n")
+                lectura=0
+            if(n<=2):
+                print("\nLa magnitud de la matriz no es suficiente. Intente nuevamente\n")
+                lectura=0
+        matriz_lectura.append(fila1)    
+        for i in range(1,n-1):
+            lectura=0  
+            while(lectura!=1):
+                aux=input("\nLos valores de la siguiente fila son: ")
+                fila1=aux.split(',')
+                error=0
+                for i in range(0,n):
+                    try:
+                        fila1[i]=int(fila1[i])
+                        lectura=1
+                    except:
+                        try:
+                            fila1[i]=float(fila1[i])
+                            lectura=1
+                        except:
+                            error=1     
+                if(error==1):
+                    print("\nEl dato ingresado no es valido. Por favor intente nuevamente\n")
+                    lectura=0
+                if(n<=2):
+                    print("\nLa magnitud de la matriz no es suficiente. Intente nuevamente\n")
+                    lectura=0
+            matriz_lectura.append(fila1)  
+        return matriz_lectura
 
         
 #Pruebas Gauss
-g_1=Gauss([[1,4,5,15,1],[8,32,7,8,2],[9,0,9,6,3],[4,9,5,1,4]])
+menu=Menu()
+m_1=menu.inicio()
+g_1=Gauss(m_1)
 g_1.gauss_jordan()
-#Pruebas funcionamiento operaciones matriciales PARA LA VERSIÓN BETA COMENTAR LA CLASE GAUSS Y EJECUTAR PRUEBAS
+
+#[[1,4,5,15,1],[8,32,7,8,2],[9,0,9,6,3],[4,9,5,1,4]]
+
+#Pruebas funcionamiento operaciones matriciales PARA LA VERSIÓN BETA COMENTAR LA CLASE GAUSS,MENU Y EJECUTAR PRUEBAS
 # m_1=matriz([[1,4,5],[3,6,7],[9,0,9]])
 # m_2=matriz([[1,2,3],[4,5,6],[7,8,9]])
 # m_3=matriz([[1,2,2],[3,4,7],[3,6,1]])
