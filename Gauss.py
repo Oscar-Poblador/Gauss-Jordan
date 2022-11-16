@@ -1,4 +1,4 @@
-matriz_cambio=[]
+
 class Matriz:
     def __init__(self,matriz_A):
         self.listas=matriz_A
