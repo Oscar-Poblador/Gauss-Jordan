@@ -211,17 +211,3 @@ class Gauss(Matriz):
 g_1=Gauss([[1,4,5,15,1],[8,32,7,8,2],[9,0,9,6,3],[4,9,5,1,4]])
 g_1.gauss_jordan()
 
-
-
-#Pruebas funcionamiento operaciones matriciales PARA LA VERSIÓN BETA COMENTAR LA CLASE GAUSS Y EJECUTAR PRUEBAS
-# m_1=matriz([[1,4,5],[3,6,7],[9,0,9]])
-# m_2=matriz([[1,2,3],[4,5,6],[7,8,9]])
-# m_3=matriz([[1,2,2],[3,4,7],[3,6,1]])
-# print(m_1)
-# m_1.reduccion(4,1,2)
-# m_3.reduccion(4,1,2)
-# m_5.reduccion(4,1,2)
-# r_1=m_1.multiplicar(2,0)
-# print(r_1)
-# print(m_1)
-#r_2=m_1.cambiafila(0,1)
