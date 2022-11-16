@@ -128,8 +128,30 @@ class Gauss(Matriz):
         #Simplifica las columnas hacia abajo
         for i in range(0,self.columnas):
             self.simplificar(i,i)
+        for l in range(1,self.filas):
+            a=l+1
+            self.simplificar_abajo(self.filas-l,self.columnas-a)
             
-       
+    def simplificar_abajo(self,a,b): 
+        global matriz_cambio
+        matriz_aux2=[]
+        #Simplifica la b columna
+        for j in range(0,self.filas):
+            nueva_lista=[]
+            for k in range(0,self.columnas):
+                nueva_lista.append(matriz_cambio[j][k])
+            matriz_aux2.append(nueva_lista)
+
+        inverso=0
+        for j in range(0,a):    
+            inverso=matriz_cambio[j][b]*(-1)
+            matriz_aux=super().multiplicar(inverso,a,matriz_cambio)
+            for k in range(0,self.columnas):
+                matriz_cambio[j][k]=(matriz_cambio[j][k]+matriz_aux[a][k])
+        print("\nSe simplificó la ",b, " columna")
+        print("\nMatriz entrada: ",matriz_aux2,"\n")
+        print("\nMatriz resultado: ",matriz_cambio,"\n")
+
     def simplificar(self,a,b):
         global matriz_cambio
         matriz_aux2=[]
@@ -186,7 +208,7 @@ class Gauss(Matriz):
 
         
 #Pruebas Gauss
-g_1=Gauss([[1,4,5,6,1],[8,32,7,8,2],[9,0,9,6,3],[4,9,5,1,4]])
+g_1=Gauss([[1,4,5,15,1],[8,32,7,8,2],[9,0,9,6,3],[4,9,5,1,4]])
 g_1.gauss_jordan()
 
 
