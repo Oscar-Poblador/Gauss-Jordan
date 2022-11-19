@@ -113,7 +113,7 @@ class Matriz:
         matriz_multiplicar[num_fila]=renglon_multiplicar
         return matriz_multiplicar   
 class Gauss(Matriz):
-    
+    import decimal
     def gauss_jordan(self):
         print("\n------- INICIO DE SOLUCIÓN POR MÉTODO GAUSS JORDAN -------\n")
         global matriz_cambio
@@ -139,6 +139,9 @@ class Gauss(Matriz):
             print("\n\t\t\t\t\t\t       -------------------------------------------")
             print("\n\t\t\t\t\t\t       ----------     La solución es    ----------")
             print("\n\t\t\t\t\t\t       -------------------------------------------")
+            for k in range(0,self.filas):
+                for u in range(0,self.columnas):
+                    matriz_cambio[k][u]=round(matriz_cambio[k][u],2)
             print(matriz_cambio)
         except:
             print("\n La matriz no tiene solución \n")
