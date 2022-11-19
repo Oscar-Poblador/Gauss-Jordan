@@ -124,7 +124,7 @@ class Gauss(Matriz):
                 nueva_lista.append(self.listas[j][k])
             matriz_cambio.append(nueva_lista)
         print("La matriz a operar es la siguiente: ",matriz_cambio)
-
+       
         #Simplifica las columnas hacia abajo
         try:
             for i in range(0,self.columnas):
