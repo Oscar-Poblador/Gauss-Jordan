@@ -126,19 +126,22 @@ class Gauss(Matriz):
         print("La matriz a operar es la siguiente: ",matriz_cambio)
 
         #Simplifica las columnas hacia abajo
-        for i in range(0,self.columnas):
-            self.simplificar(i,i)
-        for l in range(1,self.filas):
-            a=l+1
-            self.simplificar_abajo(self.filas-l,self.columnas-a)
-        print("\n\t\t\t\t\t\t -----------------------------------------------------")
-        print("\n\t\t\t\t\t\t ----------     La matriz de entrada fue    ----------")
-        print("\n\t\t\t\t\t\t -----------------------------------------------------")
-        print(self.listas)
-        print("\n\t\t\t\t\t\t       -------------------------------------------")
-        print("\n\t\t\t\t\t\t       ----------     La solución es    ----------")
-        print("\n\t\t\t\t\t\t       -------------------------------------------")
-        print(matriz_cambio)
+        try:
+            for i in range(0,self.columnas):
+                self.simplificar(i,i)
+            for l in range(1,self.filas):
+                a=l+1
+                self.simplificar_abajo(self.filas-l,self.columnas-a)
+            print("\n\t\t\t\t\t\t -----------------------------------------------------")
+            print("\n\t\t\t\t\t\t ----------     La matriz de entrada fue    ----------")
+            print("\n\t\t\t\t\t\t -----------------------------------------------------")
+            print(self.listas)
+            print("\n\t\t\t\t\t\t       -------------------------------------------")
+            print("\n\t\t\t\t\t\t       ----------     La solución es    ----------")
+            print("\n\t\t\t\t\t\t       -------------------------------------------")
+            print(matriz_cambio)
+        except:
+            print("\n La matriz no tiene solución \n")
             
     def simplificar_abajo(self,a,b): 
         global matriz_cambio
